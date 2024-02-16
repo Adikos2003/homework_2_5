@@ -13,11 +13,14 @@ const UserForm = () => {
 
     const handleForm = (e) => {
         e.preventDefault()
-        addUser({name, email, password})
-        dispatch(addUser({name,email,password}))
-        setName('')
-        setEmail('')
-        setPassword('')
+        if (name && email && password){
+            dispatch(addUser({name, email, password}))
+            setName('')
+            setEmail('')
+            setPassword('')
+        }else {
+            alert('Заполните все поля!')
+        }
     }
     return (
         <div style={{
